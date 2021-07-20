@@ -14,13 +14,13 @@ public class PaySessionBusiness {
     this.paymentSessionService = paymentSessionService;
   }
 
-  public CreatePaySessionResponse createPaySession(CreatePaySessionRequest request) {
+  public CreatePaySessionResponse createPaySession(CreatePaySessionRequest request) {//stub
     CreatePaySessionResponse response = new CreatePaySessionResponse();
     try {
-      PaySession paySession = paymentSessionService.createWebPaySession(request);
+      PaySession paySession = paymentSessionService.createWebPaySession(request);//serve logica
       response.setSuccess(true);
-      response.setStatus(paySession.getStatus().name());
-      response.setPaySessionId(paySession.getUuid().toString());
+      response.setStatus(paySession.getStatus().name()); //setta status
+      response.setPaySessionId(paySession.getUuid().toString());//setta id
     } catch (PaySessionException e) {
       response.setSuccess(false);
     }
